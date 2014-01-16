@@ -1,0 +1,8 @@
+
+    <h1> Dear  <%= @user.name %>,</h1>
+
+
+    <h2> Idify Solutions has left you a private message on our network. Please Click on link to see message 
+<%= link_to "Message", "http://localhost:3000/mailes/#{@user.id}?token=#{@token}" %> </h2>   
+
+ 

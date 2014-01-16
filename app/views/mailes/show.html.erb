@@ -1,0 +1,18 @@
+<h1>Show Mail</h1>
+<div>
+<b>NAME</b>        <%= @maile.name %>
+</div>
+<div>
+<b>EMAIL</b>       <%= @maile.email %>
+</div>
+<div>
+<b>SUBJECT</b>     <%= @maile.subject %>
+</div>
+<div>
+<b>BODY</b>        <%= @maile.body.html_safe %>
+</div>
+<% if user_signed_in? %>
+ <%= link_to "back" ,mailes_path %>
+<% else %>
+ <%= link_to "idify solutions", "http://www.idifysolutions.com" %>
+<% end %>

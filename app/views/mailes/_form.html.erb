@@ -1,0 +1,42 @@
+ <script>
+$(function() {
+$( "#maile_date" ).datepicker({ dateFormat: 'dd-mm-yy' , minDate: 0 });
+});
+</script>
+<%= form_for @maile do |f| %>
+<% if @maile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@maile.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @maile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div> 
+ <div>
+    <%= f.label :date %>
+    <%= f.text_field :date, :readonly => true %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body, :class => "tinymce", :rows => 20, :cols => 50 %>
+    <%= tinymce %>
+  </div>
+  
+<%= f.submit "save" %>
+<% end %>
+
